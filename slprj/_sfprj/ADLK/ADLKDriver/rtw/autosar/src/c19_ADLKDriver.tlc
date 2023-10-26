@@ -21,10 +21,10 @@
       SrcLocation  ""\
     }\
     ChartData {\
-      Name         "is_DLK"\
+      Name         "is_CLK"\
       Description  "StateActiveChild"\
       SFName       ""\
-      Path         "DLK"\
+      Path         "CLK"\
       SrcLocation  ""\
     }\
     ChartData {\
@@ -56,10 +56,10 @@
       SrcLocation  ""\
     }\
     ChartData {\
-      Name         "is_CLK"\
+      Name         "is_DLK"\
       Description  "StateActiveChild"\
       SFName       ""\
-      Path         "CLK"\
+      Path         "DLK"\
       SrcLocation  ""\
     }\
     ChartData {\
@@ -105,48 +105,6 @@
       SrcLocation  ""\
     }\
     ChartData {\
-      Name         "SI_b_DoorUnlockFlg_prev"\
-      Description  "ChangeDetectionDoubleBuffer"\
-      SFName       ""\
-      Path         "SI_b_DoorUnlockFlg"\
-      SrcLocation  ""\
-    }\
-    ChartData {\
-      Name         "SI_b_DoorUnlockFlg_start"\
-      Description  "ChangeDetectionDoubleBuffer"\
-      SFName       ""\
-      Path         "SI_b_DoorUnlockFlg"\
-      SrcLocation  ""\
-    }\
-    ChartData {\
-      Name         "SI_b_DoorLockFlg_prev"\
-      Description  "ChangeDetectionDoubleBuffer"\
-      SFName       ""\
-      Path         "SI_b_DoorLockFlg"\
-      SrcLocation  ""\
-    }\
-    ChartData {\
-      Name         "SI_b_DoorLockFlg_start"\
-      Description  "ChangeDetectionDoubleBuffer"\
-      SFName       ""\
-      Path         "SI_b_DoorLockFlg"\
-      SrcLocation  ""\
-    }\
-    ChartData {\
-      Name         "SO_b_DoorRlsReq_prev"\
-      Description  "ChangeDetectionDoubleBuffer"\
-      SFName       ""\
-      Path         "SO_b_DoorRlsReq"\
-      SrcLocation  ""\
-    }\
-    ChartData {\
-      Name         "SO_b_DoorRlsReq_start"\
-      Description  "ChangeDetectionDoubleBuffer"\
-      SFName       ""\
-      Path         "SO_b_DoorRlsReq"\
-      SrcLocation  ""\
-    }\
-    ChartData {\
       Name         "SI_b_ClkUnlockFlg_prev"\
       Description  "ChangeDetectionDoubleBuffer"\
       SFName       ""\
@@ -172,6 +130,48 @@
       Description  "ChangeDetectionDoubleBuffer"\
       SFName       ""\
       Path         "SI_b_ClkLockFlg"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "SO_b_DoorRlsReq_prev"\
+      Description  "ChangeDetectionDoubleBuffer"\
+      SFName       ""\
+      Path         "SO_b_DoorRlsReq"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "SO_b_DoorRlsReq_start"\
+      Description  "ChangeDetectionDoubleBuffer"\
+      SFName       ""\
+      Path         "SO_b_DoorRlsReq"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "SI_b_DoorUnlockFlg_prev"\
+      Description  "ChangeDetectionDoubleBuffer"\
+      SFName       ""\
+      Path         "SI_b_DoorUnlockFlg"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "SI_b_DoorUnlockFlg_start"\
+      Description  "ChangeDetectionDoubleBuffer"\
+      SFName       ""\
+      Path         "SI_b_DoorUnlockFlg"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "SI_b_DoorLockFlg_prev"\
+      Description  "ChangeDetectionDoubleBuffer"\
+      SFName       ""\
+      Path         "SI_b_DoorLockFlg"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "SI_b_DoorLockFlg_start"\
+      Description  "ChangeDetectionDoubleBuffer"\
+      SFName       ""\
+      Path         "SI_b_DoorLockFlg"\
       SrcLocation  ""\
     }\
   }

@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 Auto generated XML Component Description for model ADLK
-Model version                : 1.38
+Model version                : 1.12
 Simulink Coder version       : Simulink Coder 9.7 (R2022a) 13-Nov-2021
-XML source code generated on : Thu Oct 26 09:31:47 2023
-Model Checksum               : 1043755180 3504490897 3674847602 3534825177
+XML source code generated on : Thu Oct 26 20:22:18 2023
+Model Checksum               : 2115591316 3238330396 1341413275 1957795063
 -->
 <AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_4-3-1.xsd">
     <AR-PACKAGES>
         <AR-PACKAGE>
             <SHORT-NAME>Components</SHORT-NAME>
             <ELEMENTS>
-                <SWC-IMPLEMENTATION UUID="2263c700-c736-5f75-b4e5-945b9d0f5533">
+                <SWC-IMPLEMENTATION UUID="e9cc19b5-fac7-5938-27f9-d9eb8b528fa6">
                     <SHORT-NAME>ADLK_imp</SHORT-NAME>
                     <CODE-DESCRIPTORS>
                         <CODE>
@@ -44,7 +44,7 @@ Model Checksum               : 1043755180 3504490897 3674847602 3534825177
                     <RESOURCE-CONSUMPTION>
                         <SHORT-NAME>RsrcCons_ADLK</SHORT-NAME>
                     </RESOURCE-CONSUMPTION>
-                    <SW-VERSION>1.38.1</SW-VERSION>
+                    <SW-VERSION>1.12.1</SW-VERSION>
                     <USED-CODE-GENERATOR>Embedded Coder 7.8 (R2022a) 23-Nov-2021</USED-CODE-GENERATOR>
                     <VENDOR-ID>0</VENDOR-ID>
                     <BEHAVIOR-REF DEST="SWC-INTERNAL-BEHAVIOR">/Components/ADLK/ADLK</BEHAVIOR-REF>

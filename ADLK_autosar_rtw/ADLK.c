@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'ADLK'.
  *
- * Model version                  : 1.38
+ * Model version                  : 1.12
  * Simulink Coder version         : 9.7 (R2022a) 13-Nov-2021
- * C/C++ source code generated on : Thu Oct 26 09:31:41 2023
+ * C/C++ source code generated on : Thu Oct 26 20:22:04 2023
  *
  * Target selection: autosar.tlc
  * Embedded hardware selection: Intel->x86-64 (Windows64)
@@ -249,17 +249,14 @@ static void ADLK_Rls(uint8 rtu_SI_e_Volt100mV, Boolean rtu_SI_b_DoorAjar,
  */
 void ADLK_FLADLKDriver_Init(uint8 *rty_SO_e_MotorCmd, uint8
   *rty_SO_e_MotStateMachine, uint8 *rty_SO_e_MotorPwm, boolean *rty_SO_b_Error,
-  boolean *rty_SO_b_DoorUnlockCmd, boolean *rty_SO_b_DoorLockCmd, boolean
-  *rty_SO_b_ClkUnlockCmd, boolean *rty_SO_b_ClkLockCmd)
+  uint8 *rty_SO_e_DoorLockCmd, uint8 *rty_SO_e_ClkLockCmd)
 {
   *rty_SO_e_MotorCmd = 0U;
   *rty_SO_e_MotStateMachine = 0U;
   *rty_SO_e_MotorPwm = 0U;
   *rty_SO_b_Error = false;
-  *rty_SO_b_DoorUnlockCmd = false;
-  *rty_SO_b_DoorLockCmd = false;
-  *rty_SO_b_ClkUnlockCmd = false;
-  *rty_SO_b_ClkLockCmd = false;
+  *rty_SO_e_DoorLockCmd = 0U;
+  *rty_SO_e_ClkLockCmd = 0U;
 }
 
 /*
@@ -272,10 +269,8 @@ void ADLK_FLADLKDriver(uint8 rtu_SI_e_Volt100mV, Boolean rtu_SO_b_DoorRlsReq,
   rtu_SI_e_DoorRlsDelayTime, Boolean rtu_SI_b_DoorUnlockFlg, Boolean
   rtu_SI_b_DoorLockFlg, boolean rtu_SI_b_ClkUnlockFlg, boolean
   rtu_SI_b_ClkLockFlg, uint8 *rty_SO_e_MotorCmd, uint8 *rty_SO_e_MotStateMachine,
-  uint8 *rty_SO_e_MotorPwm, boolean *rty_SO_b_Error, boolean
-  *rty_SO_b_DoorUnlockCmd, boolean *rty_SO_b_DoorLockCmd, boolean
-  *rty_SO_b_ClkUnlockCmd, boolean *rty_SO_b_ClkLockCmd, DW_FLADLKDriver_ADLK_T
-  *localDW)
+  uint8 *rty_SO_e_MotorPwm, boolean *rty_SO_b_Error, uint8 *rty_SO_e_DoorLockCmd,
+  uint8 *rty_SO_e_ClkLockCmd, DW_FLADLKDriver_ADLK_T *localDW)
 {
   if (localDW->temporalCounter_i1 < 31U) {
     localDW->temporalCounter_i1++;
@@ -289,24 +284,24 @@ void ADLK_FLADLKDriver(uint8 rtu_SI_e_Volt100mV, Boolean rtu_SO_b_DoorRlsReq,
     localDW->temporalCounter_i3++;
   }
 
-  localDW->SI_b_DoorUnlockFlg_prev = localDW->SI_b_DoorUnlockFlg_start;
-  localDW->SI_b_DoorUnlockFlg_start = rtu_SI_b_DoorUnlockFlg;
-  localDW->SI_b_DoorLockFlg_prev = localDW->SI_b_DoorLockFlg_start;
-  localDW->SI_b_DoorLockFlg_start = rtu_SI_b_DoorLockFlg;
-  localDW->SO_b_DoorRlsReq_prev = localDW->SO_b_DoorRlsReq_start;
-  localDW->SO_b_DoorRlsReq_start = rtu_SO_b_DoorRlsReq;
   localDW->SI_b_ClkUnlockFlg_prev = localDW->SI_b_ClkUnlockFlg_start;
   localDW->SI_b_ClkUnlockFlg_start = rtu_SI_b_ClkUnlockFlg;
   localDW->SI_b_ClkLockFlg_prev = localDW->SI_b_ClkLockFlg_start;
   localDW->SI_b_ClkLockFlg_start = rtu_SI_b_ClkLockFlg;
+  localDW->SO_b_DoorRlsReq_prev = localDW->SO_b_DoorRlsReq_start;
+  localDW->SO_b_DoorRlsReq_start = rtu_SO_b_DoorRlsReq;
+  localDW->SI_b_DoorUnlockFlg_prev = localDW->SI_b_DoorUnlockFlg_start;
+  localDW->SI_b_DoorUnlockFlg_start = rtu_SI_b_DoorUnlockFlg;
+  localDW->SI_b_DoorLockFlg_prev = localDW->SI_b_DoorLockFlg_start;
+  localDW->SI_b_DoorLockFlg_start = rtu_SI_b_DoorLockFlg;
 
   /* Chart: '<S3>/FLADLKDriver' */
   if (localDW->is_active_c19_ADLKDriver == 0U) {
-    localDW->SI_b_DoorUnlockFlg_prev = rtu_SI_b_DoorUnlockFlg;
-    localDW->SI_b_DoorLockFlg_prev = rtu_SI_b_DoorLockFlg;
-    localDW->SO_b_DoorRlsReq_prev = rtu_SO_b_DoorRlsReq;
     localDW->SI_b_ClkUnlockFlg_prev = rtu_SI_b_ClkUnlockFlg;
     localDW->SI_b_ClkLockFlg_prev = rtu_SI_b_ClkLockFlg;
+    localDW->SO_b_DoorRlsReq_prev = rtu_SO_b_DoorRlsReq;
+    localDW->SI_b_DoorUnlockFlg_prev = rtu_SI_b_DoorUnlockFlg;
+    localDW->SI_b_DoorLockFlg_prev = rtu_SI_b_DoorLockFlg;
     localDW->is_active_c19_ADLKDriver = 1U;
     localDW->is_DLK = ADLK_IN_Idle;
     localDW->is_CLK = ADLK_IN_Idle;
@@ -329,15 +324,15 @@ void ADLK_FLADLKDriver(uint8 rtu_SI_e_Volt100mV, Boolean rtu_SO_b_DoorRlsReq,
      case ADLK_IN_Lock:
       if (!localDW->SL_b_MotorMutexFlg) {
         localDW->is_DLK = ADLK_IN_LockAct;
-        localDW->temporalCounter_i1 = 0U;
-        *rty_SO_b_DoorLockCmd = true;
+        localDW->temporalCounter_i3 = 0U;
+        *rty_SO_e_DoorLockCmd = 2U;
         localDW->SL_b_MotorMutexFlg = true;
       }
       break;
 
      case ADLK_IN_LockAct:
-      if (localDW->temporalCounter_i1 >= 20) {
-        *rty_SO_b_DoorLockCmd = false;
+      if (localDW->temporalCounter_i3 >= 20) {
+        *rty_SO_e_DoorLockCmd = 0U;
         localDW->SL_b_MotorMutexFlg = false;
         localDW->is_DLK = ADLK_IN_Idle;
       }
@@ -346,16 +341,16 @@ void ADLK_FLADLKDriver(uint8 rtu_SI_e_Volt100mV, Boolean rtu_SO_b_DoorRlsReq,
      case ADLK_IN_Unlock:
       if (!localDW->SL_b_MotorMutexFlg) {
         localDW->is_DLK = ADLK_IN_UnlockAct;
-        localDW->temporalCounter_i1 = 0U;
-        *rty_SO_b_DoorUnlockCmd = true;
+        localDW->temporalCounter_i3 = 0U;
+        *rty_SO_e_DoorLockCmd = 1U;
         localDW->SL_b_MotorMutexFlg = true;
       }
       break;
 
      default:
       /* case IN_UnlockAct: */
-      if (localDW->temporalCounter_i1 >= 20) {
-        *rty_SO_b_DoorUnlockCmd = false;
+      if (localDW->temporalCounter_i3 >= 20) {
+        *rty_SO_e_DoorLockCmd = 0U;
         localDW->SL_b_MotorMutexFlg = false;
         localDW->is_DLK = ADLK_IN_Idle;
       }
@@ -377,15 +372,15 @@ void ADLK_FLADLKDriver(uint8 rtu_SI_e_Volt100mV, Boolean rtu_SO_b_DoorRlsReq,
      case ADLK_IN_Lock:
       if (!localDW->SL_b_MotorMutexFlg) {
         localDW->is_CLK = ADLK_IN_LockAct;
-        localDW->temporalCounter_i3 = 0U;
-        *rty_SO_b_ClkLockCmd = true;
+        localDW->temporalCounter_i1 = 0U;
+        *rty_SO_e_ClkLockCmd = 2U;
         localDW->SL_b_MotorMutexFlg = true;
       }
       break;
 
      case ADLK_IN_LockAct:
-      if (localDW->temporalCounter_i3 >= 20) {
-        *rty_SO_b_ClkLockCmd = false;
+      if (localDW->temporalCounter_i1 >= 20) {
+        *rty_SO_e_ClkLockCmd = 0U;
         localDW->SL_b_MotorMutexFlg = false;
         localDW->is_CLK = ADLK_IN_Idle;
       }
@@ -394,16 +389,16 @@ void ADLK_FLADLKDriver(uint8 rtu_SI_e_Volt100mV, Boolean rtu_SO_b_DoorRlsReq,
      case ADLK_IN_Unlock:
       if (!localDW->SL_b_MotorMutexFlg) {
         localDW->is_CLK = ADLK_IN_UnlockAct;
-        localDW->temporalCounter_i3 = 0U;
-        *rty_SO_b_ClkUnlockCmd = true;
+        localDW->temporalCounter_i1 = 0U;
+        *rty_SO_e_ClkLockCmd = 1U;
         localDW->SL_b_MotorMutexFlg = true;
       }
       break;
 
      default:
       /* case IN_UnlockAct: */
-      if (localDW->temporalCounter_i3 >= 20) {
-        *rty_SO_b_ClkUnlockCmd = false;
+      if (localDW->temporalCounter_i1 >= 20) {
+        *rty_SO_e_ClkLockCmd = 0U;
         localDW->SL_b_MotorMutexFlg = false;
         localDW->is_CLK = ADLK_IN_Idle;
       }
@@ -422,7 +417,8 @@ void ADLK_FLADLKDriver(uint8 rtu_SI_e_Volt100mV, Boolean rtu_SO_b_DoorRlsReq,
 /* Model step function for TID1 */
 void ADLK_Step(void)                   /* Explicit Task: ADLK_Step */
 {
-  uint8 SO_e_MotorPwm_d;
+  uint8 SO_e_ClkLockCmd;
+  uint8 SO_e_ClkLockCmd_h;
   Boolean tmpRead;
   Boolean tmpRead_0;
   Boolean tmpRead_1;
@@ -430,35 +426,32 @@ void ADLK_Step(void)                   /* Explicit Task: ADLK_Step */
   Boolean tmpRead_3;
   Boolean tmpRead_4;
   Boolean tmpRead_5;
-  boolean SO_b_ClkLockCmd;
-  boolean SO_b_ClkLockCmd_f;
-  boolean SO_b_ClkUnlockCmd;
-  boolean SO_b_ClkUnlockCmd_h;
+  Boolean tmpRead_6;
+  Boolean tmpRead_7;
   boolean SO_b_Error;
-  boolean SO_b_Error_j;
+  boolean SO_b_Error_c;
 
   /* Inport: '<Root>/VbOUT_HWA_RRDoorFullOpen_flg_VbOUT_HWA_RRDoorFullOpen_flg' */
   (void)Rte_Read_VbOUT_HWA_RRDoorFullOpen_flg_VbOUT_HWA_RRDoorFullOpen_flg
-    (&tmpRead_5);
+    (&tmpRead_7);
 
   /* Inport: '<Root>/VbOUT_HWA_FRDoorFullOpen_flg_VbOUT_HWA_FRDoorFullOpen_flg' */
   (void)Rte_Read_VbOUT_HWA_FRDoorFullOpen_flg_VbOUT_HWA_FRDoorFullOpen_flg
     (&SO_b_Error);
 
   /* Inport: '<Root>/VbINP_HWA_RRDoorAjar_flg_VbINP_HWA_RRDoorAjar_flg' */
-  (void)Rte_Read_VbINP_HWA_RRDoorAjar_flg_VbINP_HWA_RRDoorAjar_flg(&tmpRead_4);
+  (void)Rte_Read_VbINP_HWA_RRDoorAjar_flg_VbINP_HWA_RRDoorAjar_flg(&tmpRead_6);
 
   /* Inport: '<Root>/VbINP_HWA_FRDoorAjar_flg_VbINP_HWA_FRDoorAjar_flg' */
-  (void)Rte_Read_VbINP_HWA_FRDoorAjar_flg_VbINP_HWA_FRDoorAjar_flg
-    (&SO_b_ClkUnlockCmd);
+  (void)Rte_Read_VbINP_HWA_FRDoorAjar_flg_VbINP_HWA_FRDoorAjar_flg(&tmpRead_5);
 
   /* Inport: '<Root>/VbOUT_REL_RRDoorRlsReq_flg_VbOUT_REL_RRDoorRlsReq_flg' */
   (void)Rte_Read_VbOUT_REL_RRDoorRlsReq_flg_VbOUT_REL_RRDoorRlsReq_flg
-    (&tmpRead_3);
+    (&tmpRead_4);
 
   /* Inport: '<Root>/VbOUT_REL_FRDoorRlsReq_flg_VbOUT_REL_FRDoorRlsReq_flg' */
   (void)Rte_Read_VbOUT_REL_FRDoorRlsReq_flg_VbOUT_REL_FRDoorRlsReq_flg
-    (&SO_b_ClkLockCmd);
+    (&tmpRead_3);
 
   /* Inport: '<Root>/VbOUT_DLK_RRLock_flg_VbOUT_DLK_RRLock_flg' */
   (void)Rte_Read_VbOUT_DLK_RRLock_flg_VbOUT_DLK_RRLock_flg(&tmpRead_2);
@@ -483,136 +476,110 @@ void ADLK_Step(void)                   /* Explicit Task: ADLK_Step */
   /* Chart: '<S3>/FLADLKDriver' incorporates:
    *  Constant: '<S3>/Constant1'
    */
-  ADLK_FLADLKDriver(0U, SO_b_ClkLockCmd, SO_b_ClkUnlockCmd, SO_b_Error, 20,
-                    tmpRead, tmpRead_0, false, false, &ADLK_B.SO_e_MotorCmd_c,
-                    &ADLK_B.SO_e_MotStateMachine_d, &SO_e_MotorPwm_d,
-                    &SO_b_Error_j, &ADLK_B.SO_b_DoorUnlockCmd_i,
-                    &ADLK_B.SO_b_DoorLockCmd_j, &SO_b_ClkUnlockCmd_h,
-                    &SO_b_ClkLockCmd_f, &ADLK_DW.sf_FLADLKDriver);
+  ADLK_FLADLKDriver(0U, tmpRead_3, tmpRead_5, SO_b_Error, 20, tmpRead, tmpRead_0,
+                    false, false, &ADLK_B.SO_e_MotorCmd_p,
+                    &ADLK_B.SO_e_MotStateMachine_c, &ADLK_B.SO_e_MotorPwm_b,
+                    &SO_b_Error_c, &ADLK_B.SO_e_DoorLockCmd_f,
+                    &SO_e_ClkLockCmd_h, &ADLK_DW.sf_FLADLKDriver);
 
   /* Chart: '<S3>/RLADLKDriver' incorporates:
    *  Constant: '<S3>/Constant1'
    */
-  ADLK_FLADLKDriver(0U, tmpRead_3, tmpRead_4, tmpRead_5, 20, tmpRead_1,
-                    tmpRead_2, false, false, &ADLK_B.SO_e_MotorCmd,
-                    &ADLK_B.SO_e_MotStateMachine, &SO_e_MotorPwm_d, &SO_b_Error,
-                    &ADLK_B.SO_b_DoorUnlockCmd, &ADLK_B.SO_b_DoorLockCmd,
-                    &SO_b_ClkUnlockCmd, &SO_b_ClkLockCmd,
+  ADLK_FLADLKDriver(0U, tmpRead_4, tmpRead_6, tmpRead_7, 20, tmpRead_1,
+                    tmpRead_2, false, false, &SO_e_ClkLockCmd_h,
+                    &ADLK_B.SO_e_MotStateMachine, &ADLK_B.SO_e_MotorPwm,
+                    &SO_b_Error, &ADLK_B.SO_e_DoorLockCmd, &SO_e_ClkLockCmd,
                     &ADLK_DW.sf_RLADLKDriver);
 
   /* End of Outputs for RootInportFunctionCallGenerator generated from: '<Root>/ADLK_Step' */
 
-  /* Outport: '<Root>/VbOUT_ADLK_FRUnlock_flg_VbOUT_ADLK_FRUnlock_flg' */
-  (void)Rte_Write_VbOUT_ADLK_FRUnlock_flg_VbOUT_ADLK_FRUnlock_flg
-    (ADLK_B.SO_b_DoorUnlockCmd_i);
+  /* Outport: '<Root>/VeOUT_ADLK_FRLockReq_sig_VeOUT_ADLK_FRLockReq_sig' */
+  (void)Rte_Write_VeOUT_ADLK_FRLockReq_sig_VeOUT_ADLK_FRLockReq_sig
+    (ADLK_B.SO_e_DoorLockCmd_f);
 
-  /* Outport: '<Root>/VbOUT_ADLK_FRLock_flg_VbOUT_ADLK_FRLock_flg' */
-  (void)Rte_Write_VbOUT_ADLK_FRLock_flg_VbOUT_ADLK_FRLock_flg
-    (ADLK_B.SO_b_DoorLockCmd_j);
-
-  /* Outport: '<Root>/VbOUT_ADLK_RRUnlock_flg_VbOUT_ADLK_RRUnlock_flg' */
-  (void)Rte_Write_VbOUT_ADLK_RRUnlock_flg_VbOUT_ADLK_RRUnlock_flg
-    (ADLK_B.SO_b_DoorUnlockCmd);
-
-  /* Outport: '<Root>/VbOUT_ADLK_RRLock_flg_VbOUT_ADLK_RRLock_flg' */
-  (void)Rte_Write_VbOUT_ADLK_RRLock_flg_VbOUT_ADLK_RRLock_flg
-    (ADLK_B.SO_b_DoorLockCmd);
-
-  /* RootInportFunctionCallGenerator generated from: '<Root>/ADLK_Step' incorporates:
-   *  SubSystem: '<Root>/ADLK_Step_sys'
-   */
-  /* Outport: '<Root>/VbOUT_ADLK_FRDoorMotorA_flg_VbOUT_ADLK_FRDoorMotorA_flg' incorporates:
-   *  Constant: '<S4>/Constant'
-   *  RelationalOperator: '<S4>/Compare'
-   */
-  (void)Rte_Write_VbOUT_ADLK_FRDoorMotorA_flg_VbOUT_ADLK_FRDoorMotorA_flg
-    (ADLK_B.SO_e_MotorCmd_c == 1);
-
-  /* Outport: '<Root>/VbOUT_ADLK_FRDoorMotorB_flg_VbOUT_ADLK_FRDoorMotorB_flg' incorporates:
-   *  Constant: '<S5>/Constant'
-   *  RelationalOperator: '<S5>/Compare'
-   */
-  (void)Rte_Write_VbOUT_ADLK_FRDoorMotorB_flg_VbOUT_ADLK_FRDoorMotorB_flg
-    (ADLK_B.SO_e_MotorCmd_c == 2);
-
-  /* Outport: '<Root>/VbOUT_ADLK_RRDoorMotorA_flg_VbOUT_ADLK_RRDoorMotorA_flg' incorporates:
-   *  Constant: '<S6>/Constant'
-   *  RelationalOperator: '<S6>/Compare'
-   */
-  (void)Rte_Write_VbOUT_ADLK_RRDoorMotorA_flg_VbOUT_ADLK_RRDoorMotorA_flg
-    (ADLK_B.SO_e_MotorCmd == 1);
-
-  /* Outport: '<Root>/VbOUT_ADLK_RRDoorMotorB_flg_VbOUT_ADLK_RRDoorMotorB_flg' incorporates:
-   *  Constant: '<S7>/Constant'
-   *  RelationalOperator: '<S7>/Compare'
-   */
-  (void)Rte_Write_VbOUT_ADLK_RRDoorMotorB_flg_VbOUT_ADLK_RRDoorMotorB_flg
-    (ADLK_B.SO_e_MotorCmd == 2);
-
-  /* End of Outputs for RootInportFunctionCallGenerator generated from: '<Root>/ADLK_Step' */
+  /* Outport: '<Root>/VeOUT_ADLK_RRLockReq_sig_VeOUT_ADLK_RRLockReq_sig' */
+  (void)Rte_Write_VeOUT_ADLK_RRLockReq_sig_VeOUT_ADLK_RRLockReq_sig
+    (ADLK_B.SO_e_DoorLockCmd);
 
   /* Outport: '<Root>/VeOUT_ADLK_FRReleaseLatchStatus_sig_VeOUT_ADLK_FRReleaseLatchStatus_sig' */
   (void)
     Rte_Write_VeOUT_ADLK_FRReleaseLatchStatus_sig_VeOUT_ADLK_FRReleaseLatchStatus_sig
-    (ADLK_B.SO_e_MotStateMachine_d);
+    (ADLK_B.SO_e_MotStateMachine_c);
 
   /* Outport: '<Root>/VeOUT_ADLK_RRReleaseLatchStatus_sig_VeOUT_ADLK_RRReleaseLatchStatus_sig' */
   (void)
     Rte_Write_VeOUT_ADLK_RRReleaseLatchStatus_sig_VeOUT_ADLK_RRReleaseLatchStatus_sig
     (ADLK_B.SO_e_MotStateMachine);
+
+  /* Outport: '<Root>/VeOUT_ADLK_FRDoorMotorCmd_sig_VeOUT_ADLK_FRDoorMotorCmd_sig' */
+  (void)Rte_Write_VeOUT_ADLK_FRDoorMotorCmd_sig_VeOUT_ADLK_FRDoorMotorCmd_sig
+    (ADLK_B.SO_e_MotorCmd_p);
+
+  /* Outport: '<Root>/VeOUT_ADLK_RRDoorMotorCmd_sig_VeOUT_ADLK_RRDoorMotorCmd_sig' */
+  (void)Rte_Write_VeOUT_ADLK_RRDoorMotorCmd_sig_VeOUT_ADLK_RRDoorMotorCmd_sig(0U);
+
+  /* Outport: '<Root>/VeOUT_ADLK_FRDoorMotorPWM_pct_VeOUT_ADLK_FRDoorMotorPWM_pct' */
+  (void)Rte_Write_VeOUT_ADLK_FRDoorMotorPWM_pct_VeOUT_ADLK_FRDoorMotorPWM_pct
+    (ADLK_B.SO_e_MotorPwm_b);
+
+  /* Outport: '<Root>/VeOUT_ADLK_RRDoorMotorPWM_pct_VeOUT_ADLK_RRDoorMotorPWM_pct' */
+  (void)Rte_Write_VeOUT_ADLK_RRDoorMotorPWM_pct_VeOUT_ADLK_RRDoorMotorPWM_pct
+    (ADLK_B.SO_e_MotorPwm);
 }
 
 /* Model initialize function */
 void ADLK_Init(void)
 {
   {
-    uint8 SO_e_MotorPwm_d;
-    boolean SO_b_ClkLockCmd_f;
-    boolean SO_b_ClkUnlockCmd_h;
-    boolean SO_b_Error_j;
+    uint8 SO_e_ClkLockCmd;
+    uint8 SO_e_ClkLockCmd_h;
+    boolean SO_b_Error_c;
 
     /* SystemInitialize for RootInportFunctionCallGenerator generated from: '<Root>/ADLK_Step' incorporates:
      *  SubSystem: '<Root>/ADLK_Step_sys'
      */
 
     /* SystemInitialize for Chart: '<S3>/FLADLKDriver' */
-    ADLK_FLADLKDriver_Init(&ADLK_B.SO_e_MotorCmd_c,
-      &ADLK_B.SO_e_MotStateMachine_d, &SO_e_MotorPwm_d, &SO_b_Error_j,
-      &ADLK_B.SO_b_DoorUnlockCmd_i, &ADLK_B.SO_b_DoorLockCmd_j,
-      &SO_b_ClkUnlockCmd_h, &SO_b_ClkLockCmd_f);
+    ADLK_FLADLKDriver_Init(&ADLK_B.SO_e_MotorCmd_p,
+      &ADLK_B.SO_e_MotStateMachine_c, &ADLK_B.SO_e_MotorPwm_b, &SO_b_Error_c,
+      &ADLK_B.SO_e_DoorLockCmd_f, &SO_e_ClkLockCmd_h);
 
     /* SystemInitialize for Chart: '<S3>/RLADLKDriver' */
-    ADLK_FLADLKDriver_Init(&ADLK_B.SO_e_MotorCmd, &ADLK_B.SO_e_MotStateMachine,
-      &SO_e_MotorPwm_d, &SO_b_Error_j, &ADLK_B.SO_b_DoorUnlockCmd,
-      &ADLK_B.SO_b_DoorLockCmd, &SO_b_ClkUnlockCmd_h, &SO_b_ClkLockCmd_f);
+    ADLK_FLADLKDriver_Init(&SO_e_ClkLockCmd_h, &ADLK_B.SO_e_MotStateMachine,
+      &ADLK_B.SO_e_MotorPwm, &SO_b_Error_c, &ADLK_B.SO_e_DoorLockCmd,
+      &SO_e_ClkLockCmd);
 
     /* End of SystemInitialize for RootInportFunctionCallGenerator generated from: '<Root>/ADLK_Step' */
 
-    /* SystemInitialize for Outport: '<Root>/VbOUT_ADLK_FRUnlock_flg_VbOUT_ADLK_FRUnlock_flg' */
-    (void)Rte_Write_VbOUT_ADLK_FRUnlock_flg_VbOUT_ADLK_FRUnlock_flg
-      (ADLK_B.SO_b_DoorUnlockCmd_i);
+    /* SystemInitialize for Outport: '<Root>/VeOUT_ADLK_FRLockReq_sig_VeOUT_ADLK_FRLockReq_sig' */
+    (void)Rte_Write_VeOUT_ADLK_FRLockReq_sig_VeOUT_ADLK_FRLockReq_sig
+      (ADLK_B.SO_e_DoorLockCmd_f);
 
-    /* SystemInitialize for Outport: '<Root>/VbOUT_ADLK_FRLock_flg_VbOUT_ADLK_FRLock_flg' */
-    (void)Rte_Write_VbOUT_ADLK_FRLock_flg_VbOUT_ADLK_FRLock_flg
-      (ADLK_B.SO_b_DoorLockCmd_j);
-
-    /* SystemInitialize for Outport: '<Root>/VbOUT_ADLK_RRUnlock_flg_VbOUT_ADLK_RRUnlock_flg' */
-    (void)Rte_Write_VbOUT_ADLK_RRUnlock_flg_VbOUT_ADLK_RRUnlock_flg
-      (ADLK_B.SO_b_DoorUnlockCmd);
-
-    /* SystemInitialize for Outport: '<Root>/VbOUT_ADLK_RRLock_flg_VbOUT_ADLK_RRLock_flg' */
-    (void)Rte_Write_VbOUT_ADLK_RRLock_flg_VbOUT_ADLK_RRLock_flg
-      (ADLK_B.SO_b_DoorLockCmd);
+    /* SystemInitialize for Outport: '<Root>/VeOUT_ADLK_RRLockReq_sig_VeOUT_ADLK_RRLockReq_sig' */
+    (void)Rte_Write_VeOUT_ADLK_RRLockReq_sig_VeOUT_ADLK_RRLockReq_sig
+      (ADLK_B.SO_e_DoorLockCmd);
 
     /* SystemInitialize for Outport: '<Root>/VeOUT_ADLK_FRReleaseLatchStatus_sig_VeOUT_ADLK_FRReleaseLatchStatus_sig' */
     (void)
       Rte_Write_VeOUT_ADLK_FRReleaseLatchStatus_sig_VeOUT_ADLK_FRReleaseLatchStatus_sig
-      (ADLK_B.SO_e_MotStateMachine_d);
+      (ADLK_B.SO_e_MotStateMachine_c);
 
     /* SystemInitialize for Outport: '<Root>/VeOUT_ADLK_RRReleaseLatchStatus_sig_VeOUT_ADLK_RRReleaseLatchStatus_sig' */
     (void)
       Rte_Write_VeOUT_ADLK_RRReleaseLatchStatus_sig_VeOUT_ADLK_RRReleaseLatchStatus_sig
       (ADLK_B.SO_e_MotStateMachine);
+
+    /* SystemInitialize for Outport: '<Root>/VeOUT_ADLK_FRDoorMotorCmd_sig_VeOUT_ADLK_FRDoorMotorCmd_sig' */
+    (void)Rte_Write_VeOUT_ADLK_FRDoorMotorCmd_sig_VeOUT_ADLK_FRDoorMotorCmd_sig
+      (ADLK_B.SO_e_MotorCmd_p);
+
+    /* SystemInitialize for Outport: '<Root>/VeOUT_ADLK_FRDoorMotorPWM_pct_VeOUT_ADLK_FRDoorMotorPWM_pct' */
+    (void)Rte_Write_VeOUT_ADLK_FRDoorMotorPWM_pct_VeOUT_ADLK_FRDoorMotorPWM_pct
+      (ADLK_B.SO_e_MotorPwm_b);
+
+    /* SystemInitialize for Outport: '<Root>/VeOUT_ADLK_RRDoorMotorPWM_pct_VeOUT_ADLK_RRDoorMotorPWM_pct' */
+    (void)Rte_Write_VeOUT_ADLK_RRDoorMotorPWM_pct_VeOUT_ADLK_RRDoorMotorPWM_pct
+      (ADLK_B.SO_e_MotorPwm);
   }
 }
 
