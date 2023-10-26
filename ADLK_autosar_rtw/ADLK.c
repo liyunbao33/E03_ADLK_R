@@ -5,7 +5,7 @@
  *
  * Model version                  : 1.12
  * Simulink Coder version         : 9.7 (R2022a) 13-Nov-2021
- * C/C++ source code generated on : Thu Oct 26 20:22:04 2023
+ * C/C++ source code generated on : Thu Oct 26 21:31:30 2023
  *
  * Target selection: autosar.tlc
  * Embedded hardware selection: Intel->x86-64 (Windows64)
@@ -303,60 +303,12 @@ void ADLK_FLADLKDriver(uint8 rtu_SI_e_Volt100mV, Boolean rtu_SO_b_DoorRlsReq,
     localDW->SI_b_DoorUnlockFlg_prev = rtu_SI_b_DoorUnlockFlg;
     localDW->SI_b_DoorLockFlg_prev = rtu_SI_b_DoorLockFlg;
     localDW->is_active_c19_ADLKDriver = 1U;
-    localDW->is_DLK = ADLK_IN_Idle;
     localDW->is_CLK = ADLK_IN_Idle;
+    localDW->is_DLK = ADLK_IN_Idle;
     localDW->is_Rls = ADLK_IN_Wait;
 
     /*  等待电机资源空闲  */
   } else {
-    switch (localDW->is_DLK) {
-     case ADLK_IN_Idle:
-      if ((localDW->SI_b_DoorUnlockFlg_prev != localDW->SI_b_DoorUnlockFlg_start)
-          && localDW->SI_b_DoorUnlockFlg_start) {
-        localDW->is_DLK = ADLK_IN_Unlock;
-      } else if ((localDW->SI_b_DoorLockFlg_prev !=
-                  localDW->SI_b_DoorLockFlg_start) &&
-                 localDW->SI_b_DoorLockFlg_start) {
-        localDW->is_DLK = ADLK_IN_Lock;
-      }
-      break;
-
-     case ADLK_IN_Lock:
-      if (!localDW->SL_b_MotorMutexFlg) {
-        localDW->is_DLK = ADLK_IN_LockAct;
-        localDW->temporalCounter_i3 = 0U;
-        *rty_SO_e_DoorLockCmd = 2U;
-        localDW->SL_b_MotorMutexFlg = true;
-      }
-      break;
-
-     case ADLK_IN_LockAct:
-      if (localDW->temporalCounter_i3 >= 20) {
-        *rty_SO_e_DoorLockCmd = 0U;
-        localDW->SL_b_MotorMutexFlg = false;
-        localDW->is_DLK = ADLK_IN_Idle;
-      }
-      break;
-
-     case ADLK_IN_Unlock:
-      if (!localDW->SL_b_MotorMutexFlg) {
-        localDW->is_DLK = ADLK_IN_UnlockAct;
-        localDW->temporalCounter_i3 = 0U;
-        *rty_SO_e_DoorLockCmd = 1U;
-        localDW->SL_b_MotorMutexFlg = true;
-      }
-      break;
-
-     default:
-      /* case IN_UnlockAct: */
-      if (localDW->temporalCounter_i3 >= 20) {
-        *rty_SO_e_DoorLockCmd = 0U;
-        localDW->SL_b_MotorMutexFlg = false;
-        localDW->is_DLK = ADLK_IN_Idle;
-      }
-      break;
-    }
-
     switch (localDW->is_CLK) {
      case ADLK_IN_Idle:
       if ((localDW->SI_b_ClkUnlockFlg_prev != localDW->SI_b_ClkUnlockFlg_start) &&
@@ -401,6 +353,54 @@ void ADLK_FLADLKDriver(uint8 rtu_SI_e_Volt100mV, Boolean rtu_SO_b_DoorRlsReq,
         *rty_SO_e_ClkLockCmd = 0U;
         localDW->SL_b_MotorMutexFlg = false;
         localDW->is_CLK = ADLK_IN_Idle;
+      }
+      break;
+    }
+
+    switch (localDW->is_DLK) {
+     case ADLK_IN_Idle:
+      if ((localDW->SI_b_DoorUnlockFlg_prev != localDW->SI_b_DoorUnlockFlg_start)
+          && localDW->SI_b_DoorUnlockFlg_start) {
+        localDW->is_DLK = ADLK_IN_Unlock;
+      } else if ((localDW->SI_b_DoorLockFlg_prev !=
+                  localDW->SI_b_DoorLockFlg_start) &&
+                 localDW->SI_b_DoorLockFlg_start) {
+        localDW->is_DLK = ADLK_IN_Lock;
+      }
+      break;
+
+     case ADLK_IN_Lock:
+      if (!localDW->SL_b_MotorMutexFlg) {
+        localDW->is_DLK = ADLK_IN_LockAct;
+        localDW->temporalCounter_i3 = 0U;
+        *rty_SO_e_DoorLockCmd = 2U;
+        localDW->SL_b_MotorMutexFlg = true;
+      }
+      break;
+
+     case ADLK_IN_LockAct:
+      if (localDW->temporalCounter_i3 >= 20) {
+        *rty_SO_e_DoorLockCmd = 0U;
+        localDW->SL_b_MotorMutexFlg = false;
+        localDW->is_DLK = ADLK_IN_Idle;
+      }
+      break;
+
+     case ADLK_IN_Unlock:
+      if (!localDW->SL_b_MotorMutexFlg) {
+        localDW->is_DLK = ADLK_IN_UnlockAct;
+        localDW->temporalCounter_i3 = 0U;
+        *rty_SO_e_DoorLockCmd = 1U;
+        localDW->SL_b_MotorMutexFlg = true;
+      }
+      break;
+
+     default:
+      /* case IN_UnlockAct: */
+      if (localDW->temporalCounter_i3 >= 20) {
+        *rty_SO_e_DoorLockCmd = 0U;
+        localDW->SL_b_MotorMutexFlg = false;
+        localDW->is_DLK = ADLK_IN_Idle;
       }
       break;
     }
