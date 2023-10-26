@@ -1,0 +1,179 @@
+%implements "chartSource" "C"
+%function ChartConfig(block, system) void
+  %createrecord chartConfiguration { ...
+          executeAtInitialization  0 ...
+  }
+  %return chartConfiguration
+%endfunction
+%function ChartDataMap(block, system) void
+  %createrecord ChartDataElements {\
+    NumChartData   23 \
+    ChartDataDefaults {\
+      RecordType   "ChartData"\
+      Dimensions   []\
+      IsTestPoint  0\
+    }\
+    ChartData {\
+      Name         "is_active_c19_ADLKDriver"\
+      Description  "StateIsActive"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_DLK"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "DLK"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_Rls"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "Rls"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_MainProgress"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "Rls.Normal.NonElectricDoor.MainProgress"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_Release"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "Rls.Normal.NonElectricDoor.MainProgress.Release"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_Step2_Open"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "Rls.Normal.NonElectricDoor.MainProgress.Release.Step2_Open"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_CLK"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "CLK"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "SL_e_CycleCount"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "SL_e_CycleCount"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "SL_e_DoorRlsDelayTime"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "SL_e_DoorRlsDelayTime"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "SL_b_MotorMutexFlg"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "SL_b_MotorMutexFlg"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "temporalCounter_i1"\
+      Description  "TemporalCounter"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "temporalCounter_i2"\
+      Description  "TemporalCounter"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "temporalCounter_i3"\
+      Description  "TemporalCounter"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "SI_b_DoorUnlockFlg_prev"\
+      Description  "ChangeDetectionDoubleBuffer"\
+      SFName       ""\
+      Path         "SI_b_DoorUnlockFlg"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "SI_b_DoorUnlockFlg_start"\
+      Description  "ChangeDetectionDoubleBuffer"\
+      SFName       ""\
+      Path         "SI_b_DoorUnlockFlg"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "SI_b_DoorLockFlg_prev"\
+      Description  "ChangeDetectionDoubleBuffer"\
+      SFName       ""\
+      Path         "SI_b_DoorLockFlg"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "SI_b_DoorLockFlg_start"\
+      Description  "ChangeDetectionDoubleBuffer"\
+      SFName       ""\
+      Path         "SI_b_DoorLockFlg"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "SO_b_DoorRlsReq_prev"\
+      Description  "ChangeDetectionDoubleBuffer"\
+      SFName       ""\
+      Path         "SO_b_DoorRlsReq"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "SO_b_DoorRlsReq_start"\
+      Description  "ChangeDetectionDoubleBuffer"\
+      SFName       ""\
+      Path         "SO_b_DoorRlsReq"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "SI_b_ClkUnlockFlg_prev"\
+      Description  "ChangeDetectionDoubleBuffer"\
+      SFName       ""\
+      Path         "SI_b_ClkUnlockFlg"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "SI_b_ClkUnlockFlg_start"\
+      Description  "ChangeDetectionDoubleBuffer"\
+      SFName       ""\
+      Path         "SI_b_ClkUnlockFlg"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "SI_b_ClkLockFlg_prev"\
+      Description  "ChangeDetectionDoubleBuffer"\
+      SFName       ""\
+      Path         "SI_b_ClkLockFlg"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "SI_b_ClkLockFlg_start"\
+      Description  "ChangeDetectionDoubleBuffer"\
+      SFName       ""\
+      Path         "SI_b_ClkLockFlg"\
+      SrcLocation  ""\
+    }\
+  }
+  %return ChartDataElements
+%endfunction

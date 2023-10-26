@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Auto generated XML Component Description for model ADLK
+Model version                : 1.38
+Simulink Coder version       : Simulink Coder 9.7 (R2022a) 13-Nov-2021
+XML source code generated on : Thu Oct 26 09:31:47 2023
+Model Checksum               : 1043755180 3504490897 3674847602 3534825177
+-->
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_4-3-1.xsd">
+    <AR-PACKAGES>
+        <AR-PACKAGE>
+            <SHORT-NAME>Components</SHORT-NAME>
+            <ELEMENTS>
+                <SWC-IMPLEMENTATION UUID="2263c700-c736-5f75-b4e5-945b9d0f5533">
+                    <SHORT-NAME>ADLK_imp</SHORT-NAME>
+                    <CODE-DESCRIPTORS>
+                        <CODE>
+                            <SHORT-NAME>Code</SHORT-NAME>
+                            <ARTIFACT-DESCRIPTORS>
+                                <AUTOSAR-ENGINEERING-OBJECT>
+                                    <SHORT-LABEL>ADLK_c</SHORT-LABEL>
+                                    <CATEGORY>SWSRC</CATEGORY>
+                                </AUTOSAR-ENGINEERING-OBJECT>
+                                <AUTOSAR-ENGINEERING-OBJECT>
+                                    <SHORT-LABEL>ADLK_h</SHORT-LABEL>
+                                    <CATEGORY>SWHDR</CATEGORY>
+                                </AUTOSAR-ENGINEERING-OBJECT>
+                                <AUTOSAR-ENGINEERING-OBJECT>
+                                    <SHORT-LABEL>ADLK_private_h</SHORT-LABEL>
+                                    <CATEGORY>SWHDR</CATEGORY>
+                                </AUTOSAR-ENGINEERING-OBJECT>
+                                <AUTOSAR-ENGINEERING-OBJECT>
+                                    <SHORT-LABEL>ADLK_types_h</SHORT-LABEL>
+                                    <CATEGORY>SWHDR</CATEGORY>
+                                </AUTOSAR-ENGINEERING-OBJECT>
+                                <AUTOSAR-ENGINEERING-OBJECT>
+                                    <SHORT-LABEL>rtwtypes_h</SHORT-LABEL>
+                                    <CATEGORY>SWHDR</CATEGORY>
+                                </AUTOSAR-ENGINEERING-OBJECT>
+                            </ARTIFACT-DESCRIPTORS>
+                        </CODE>
+                    </CODE-DESCRIPTORS>
+                    <PROGRAMMING-LANGUAGE>C</PROGRAMMING-LANGUAGE>
+                    <RESOURCE-CONSUMPTION>
+                        <SHORT-NAME>RsrcCons_ADLK</SHORT-NAME>
+                    </RESOURCE-CONSUMPTION>
+                    <SW-VERSION>1.38.1</SW-VERSION>
+                    <USED-CODE-GENERATOR>Embedded Coder 7.8 (R2022a) 23-Nov-2021</USED-CODE-GENERATOR>
+                    <VENDOR-ID>0</VENDOR-ID>
+                    <BEHAVIOR-REF DEST="SWC-INTERNAL-BEHAVIOR">/Components/ADLK/ADLK</BEHAVIOR-REF>
+                </SWC-IMPLEMENTATION>
+            </ELEMENTS>
+        </AR-PACKAGE>
+    </AR-PACKAGES>
+</AUTOSAR>
