@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'ADLK'.
  *
- * Model version                  : 1.12
+ * Model version                  : 1.13
  * Simulink Coder version         : 9.7 (R2022a) 13-Nov-2021
- * C/C++ source code generated on : Thu Oct 26 21:31:30 2023
+ * C/C++ source code generated on : Fri Oct 27 15:43:46 2023
  *
  * Target selection: autosar.tlc
  * Embedded hardware selection: Intel->x86-64 (Windows64)
@@ -417,7 +417,6 @@ void ADLK_FLADLKDriver(uint8 rtu_SI_e_Volt100mV, Boolean rtu_SO_b_DoorRlsReq,
 /* Model step function for TID1 */
 void ADLK_Step(void)                   /* Explicit Task: ADLK_Step */
 {
-  uint8 SO_e_ClkLockCmd;
   uint8 SO_e_ClkLockCmd_h;
   Boolean tmpRead;
   Boolean tmpRead_0;
@@ -486,9 +485,9 @@ void ADLK_Step(void)                   /* Explicit Task: ADLK_Step */
    *  Constant: '<S3>/Constant1'
    */
   ADLK_FLADLKDriver(0U, tmpRead_4, tmpRead_6, tmpRead_7, 20, tmpRead_1,
-                    tmpRead_2, false, false, &SO_e_ClkLockCmd_h,
+                    tmpRead_2, false, false, &ADLK_B.SO_e_MotorCmd,
                     &ADLK_B.SO_e_MotStateMachine, &ADLK_B.SO_e_MotorPwm,
-                    &SO_b_Error, &ADLK_B.SO_e_DoorLockCmd, &SO_e_ClkLockCmd,
+                    &SO_b_Error, &ADLK_B.SO_e_DoorLockCmd, &SO_e_ClkLockCmd_h,
                     &ADLK_DW.sf_RLADLKDriver);
 
   /* End of Outputs for RootInportFunctionCallGenerator generated from: '<Root>/ADLK_Step' */
@@ -516,7 +515,8 @@ void ADLK_Step(void)                   /* Explicit Task: ADLK_Step */
     (ADLK_B.SO_e_MotorCmd_p);
 
   /* Outport: '<Root>/VeOUT_ADLK_RRDoorMotorCmd_sig_VeOUT_ADLK_RRDoorMotorCmd_sig' */
-  (void)Rte_Write_VeOUT_ADLK_RRDoorMotorCmd_sig_VeOUT_ADLK_RRDoorMotorCmd_sig(0U);
+  (void)Rte_Write_VeOUT_ADLK_RRDoorMotorCmd_sig_VeOUT_ADLK_RRDoorMotorCmd_sig
+    (ADLK_B.SO_e_MotorCmd);
 
   /* Outport: '<Root>/VeOUT_ADLK_FRDoorMotorPWM_pct_VeOUT_ADLK_FRDoorMotorPWM_pct' */
   (void)Rte_Write_VeOUT_ADLK_FRDoorMotorPWM_pct_VeOUT_ADLK_FRDoorMotorPWM_pct
@@ -531,7 +531,6 @@ void ADLK_Step(void)                   /* Explicit Task: ADLK_Step */
 void ADLK_Init(void)
 {
   {
-    uint8 SO_e_ClkLockCmd;
     uint8 SO_e_ClkLockCmd_h;
     boolean SO_b_Error_c;
 
@@ -545,9 +544,9 @@ void ADLK_Init(void)
       &ADLK_B.SO_e_DoorLockCmd_f, &SO_e_ClkLockCmd_h);
 
     /* SystemInitialize for Chart: '<S3>/RLADLKDriver' */
-    ADLK_FLADLKDriver_Init(&SO_e_ClkLockCmd_h, &ADLK_B.SO_e_MotStateMachine,
+    ADLK_FLADLKDriver_Init(&ADLK_B.SO_e_MotorCmd, &ADLK_B.SO_e_MotStateMachine,
       &ADLK_B.SO_e_MotorPwm, &SO_b_Error_c, &ADLK_B.SO_e_DoorLockCmd,
-      &SO_e_ClkLockCmd);
+      &SO_e_ClkLockCmd_h);
 
     /* End of SystemInitialize for RootInportFunctionCallGenerator generated from: '<Root>/ADLK_Step' */
 
@@ -572,6 +571,10 @@ void ADLK_Init(void)
     /* SystemInitialize for Outport: '<Root>/VeOUT_ADLK_FRDoorMotorCmd_sig_VeOUT_ADLK_FRDoorMotorCmd_sig' */
     (void)Rte_Write_VeOUT_ADLK_FRDoorMotorCmd_sig_VeOUT_ADLK_FRDoorMotorCmd_sig
       (ADLK_B.SO_e_MotorCmd_p);
+
+    /* SystemInitialize for Outport: '<Root>/VeOUT_ADLK_RRDoorMotorCmd_sig_VeOUT_ADLK_RRDoorMotorCmd_sig' */
+    (void)Rte_Write_VeOUT_ADLK_RRDoorMotorCmd_sig_VeOUT_ADLK_RRDoorMotorCmd_sig
+      (ADLK_B.SO_e_MotorCmd);
 
     /* SystemInitialize for Outport: '<Root>/VeOUT_ADLK_FRDoorMotorPWM_pct_VeOUT_ADLK_FRDoorMotorPWM_pct' */
     (void)Rte_Write_VeOUT_ADLK_FRDoorMotorPWM_pct_VeOUT_ADLK_FRDoorMotorPWM_pct

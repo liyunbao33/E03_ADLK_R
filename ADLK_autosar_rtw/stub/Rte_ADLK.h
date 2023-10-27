@@ -7,7 +7,7 @@
    This file is generated for:
    Atomic software component:  "ADLK"
    ARXML schema: "4.3"
-   File generated on: "26-Oct-2023 21:31:42"  */
+   File generated on: "27-Oct-2023 15:43:56"  */
 
 #ifndef Rte_ADLK_h
 #define Rte_ADLK_h
@@ -68,6 +68,17 @@ Std_ReturnType
 
 Std_ReturnType
   Rte_Invalidate_VeOUT_ADLK_FRDoorMotorCmd_sig_VeOUT_ADLK_FRDoorMotorCmd_sig
+  (void);
+
+#define Rte_Write_VeOUT_ADLK_RRDoorMotorCmd_sig_VeOUT_ADLK_RRDoorMotorCmd_sig Rte_Write_ADLK_VeOUT_ADLK_RRDoorMotorCmd_sig_VeOUT_ADLK_RRDoorMotorCmd_sig
+
+Std_ReturnType
+  Rte_Write_VeOUT_ADLK_RRDoorMotorCmd_sig_VeOUT_ADLK_RRDoorMotorCmd_sig(UInt8 u);
+
+#define Rte_Invalidate_VeOUT_ADLK_RRDoorMotorCmd_sig_VeOUT_ADLK_RRDoorMotorCmd_sig Rte_Invalidate_ADLK_VeOUT_ADLK_RRDoorMotorCmd_sig_VeOUT_ADLK_RRDoorMotorCmd_sig
+
+Std_ReturnType
+  Rte_Invalidate_VeOUT_ADLK_RRDoorMotorCmd_sig_VeOUT_ADLK_RRDoorMotorCmd_sig
   (void);
 
 #define Rte_Write_VeOUT_ADLK_FRDoorMotorPWM_pct_VeOUT_ADLK_FRDoorMotorPWM_pct Rte_Write_ADLK_VeOUT_ADLK_FRDoorMotorPWM_pct_VeOUT_ADLK_FRDoorMotorPWM_pct
