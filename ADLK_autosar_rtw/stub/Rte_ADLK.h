@@ -7,7 +7,7 @@
    This file is generated for:
    Atomic software component:  "ADLK"
    ARXML schema: "4.3"
-   File generated on: "27-Oct-2023 15:43:56"  */
+   File generated on: "06-Dec-2023 18:08:10"  */
 
 #ifndef Rte_ADLK_h
 #define Rte_ADLK_h

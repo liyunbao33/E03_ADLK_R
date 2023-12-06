@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'ADLK'.
  *
- * Model version                  : 1.13
+ * Model version                  : 1.20
  * Simulink Coder version         : 9.7 (R2022a) 13-Nov-2021
- * C/C++ source code generated on : Fri Oct 27 15:43:46 2023
+ * C/C++ source code generated on : Wed Dec  6 18:08:05 2023
  *
  * Target selection: autosar.tlc
  * Embedded hardware selection: Intel->x86-64 (Windows64)
@@ -19,16 +19,16 @@
 #include "Rte_Type.h"
 #include "ADLK.h"
 
-extern void ADLK_FLADLKDriver_Init(uint8 *rty_SO_e_MotorCmd, uint8
+extern void ADLK_FRADLKDriver_Init(uint8 *rty_SO_e_MotorCmd, uint8
   *rty_SO_e_MotStateMachine, uint8 *rty_SO_e_MotorPwm, boolean *rty_SO_b_Error,
   uint8 *rty_SO_e_DoorLockCmd, uint8 *rty_SO_e_ClkLockCmd);
-extern void ADLK_FLADLKDriver(uint8 rtu_SI_e_Volt100mV, Boolean
+extern void ADLK_FRADLKDriver(uint8 rtu_SI_e_Volt100mV, Boolean
   rtu_SO_b_DoorRlsReq, Boolean rtu_SI_b_DoorAjar, Boolean rtu_SI_b_DoorOpen,
   uint8 rtu_SI_e_DoorRlsDelayTime, Boolean rtu_SI_b_DoorUnlockFlg, Boolean
   rtu_SI_b_DoorLockFlg, boolean rtu_SI_b_ClkUnlockFlg, boolean
   rtu_SI_b_ClkLockFlg, uint8 *rty_SO_e_MotorCmd, uint8 *rty_SO_e_MotStateMachine,
   uint8 *rty_SO_e_MotorPwm, boolean *rty_SO_b_Error, uint8 *rty_SO_e_DoorLockCmd,
-  uint8 *rty_SO_e_ClkLockCmd, DW_FLADLKDriver_ADLK_T *localDW);
+  uint8 *rty_SO_e_ClkLockCmd, DW_FRADLKDriver_ADLK_T *localDW);
 
 #endif                                 /* RTW_HEADER_ADLK_private_h_ */
 
